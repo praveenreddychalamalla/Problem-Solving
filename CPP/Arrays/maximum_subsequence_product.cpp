@@ -1,3 +1,8 @@
+/**
+ * @author Praveen Reddy Chalamalla
+ * @create date 2021-05-26
+ * @desc Maximum subsequence product in an array
+ */
 #include <bits/stdc++.h>
 using namespace std;
 

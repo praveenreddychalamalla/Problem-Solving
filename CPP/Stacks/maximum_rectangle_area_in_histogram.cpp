@@ -3,6 +3,8 @@
  * @create date 2021-06-05 
  * @desc Find the largest rectangular area possible in a given histogram where the largest rectangle can be made of a number of contiguous bars. (Width =1) 
 */
+
+//Time Complexity - O(n)
 #include <bits/stdc++.h>
 using namespace std;
 #define endl '\n';
