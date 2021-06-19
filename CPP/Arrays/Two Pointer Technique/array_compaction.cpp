@@ -6,10 +6,9 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
 //Space Complexity - O(1), Time Complexity - O(n)
 void compactArray(int a[],int n){
-  int i=-1,j; //i - Collection Pointer (Collects Non Zero elements), j- Traversal Pointer.
+  int i=-1,j; //i - Collection Pointer (Collects Non Zero elements), j - Traversal Pointer.
   for(j=0;j<n;j++){
     if(a[j]!=0){ //If you hit any non zero element, increment collection pointer and swap the elements pointed by collection pointer and traversal pointer
       swap(a[++i],a[j]);
@@ -17,7 +16,16 @@ void compactArray(int a[],int n){
   }
   return ;
 }
+void compactArray2(int a[],int n){ //If compaction have to be performed so that all non zero elements are to be moved to end retaining their relative postions  
+  //Same appraoch as above, but iterate array in reverse.
 
+  int j=n,i; //j - Collection Pointer (Collects Non Zero Elements), i - Traversal Pointer
+  for(i=n-1;i>=0;i--){
+    if(a[i]!=0){ //If you hit any non zero element, decrement collection pointer and swap the elements pointed by collection pointer and traversal pointer
+      swap(a[i],a[--j]);
+    }
+  }
+}
 int main() {
     int t;
     cin>>t;
