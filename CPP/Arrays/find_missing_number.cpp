@@ -10,7 +10,7 @@ using namespace std;
 int MissingNumber(vector<int>& a, int n) {
     for(int i=0;i<n;i++){
         //Swap until the element comes to it's right position i.e., a[i] =a[a[i]-1] only when a[i]=i+1.
-        while(a[i]<=n-1 && a[i]!=a[a[i]-1]){ //Seems to be O(n^2) approach, but not! Amortized analysis turn out to be O(n)
+        while(a[i]<=n-1 && a[i]!=a[a[i]-1]){ //Seems to be O(n^2) approach, but not! Amortized analysis turns out to be O(n)
             swap(a[i],a[a[i]-1]);
         }
     }
