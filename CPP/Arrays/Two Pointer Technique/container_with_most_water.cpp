@@ -11,7 +11,7 @@ int maxArea(int a[],int n) { //Time Complexity - O(n)
     while(i<j){
         int area=min(a[i],a[j])*(j-i); //Area between current boundaries
         res=max(area,res);
-        //As we want to maximize the area, we keep the pointer pointing to the line which has more height as it is and move the other 
+        //As we want to maximize the area, we move the pointer pointing to line which has less height 
         if(a[i]<a[j])i++; 
         else j--;
     }
