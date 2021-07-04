@@ -8,7 +8,7 @@ using namespace std;
 #define ll long long;
 int maxSubArraySum(int a[],int n) { //Time Complexity - O(n)
         int res=a[0],sum=a[0];
-        for(int i=0;i<n;i++){
+        for(int i=1;i<n;i++){
             sum=max(a[i],a[i]+sum);
             res=max(res,sum);
         }
