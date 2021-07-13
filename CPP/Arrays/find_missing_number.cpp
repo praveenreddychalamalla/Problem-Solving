@@ -6,7 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Time Complexity - O(n).
+//Time Complexity - O(n). You Can Use XOR method also ):-
 int MissingNumber(vector<int>& a, int n) {
     for(int i=0;i<n;i++){
         //Swap until the element comes to it's right position i.e., a[i] =a[a[i]-1] only when a[i]=i+1.
