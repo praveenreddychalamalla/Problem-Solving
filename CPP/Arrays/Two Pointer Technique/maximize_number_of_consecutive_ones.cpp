@@ -20,12 +20,12 @@ int findZeroes(int a[], int n, int m) {
     for(int i=0;i<n;i++){
         if(a[i]==0){
             m--;
-            if(m<0){ //If no.of zeroes that can be flipped are over, release one zero and point j to next zero
+            if(m<0){ //If no.of zeroes that can be flipped are over, release one zero and shrink the subarray from left (Point j to the index right after the zero held from left)
                 m++;
                 j=v[k++]; 
             }
         }
-        res=max(res,i-j); //No.of zeroes in (i,j] <=m  hence no.of consecutive ones produced = i-j
+        res=max(res,i-j); //No.of zeroes in (j,i] <=m  hence no.of consecutive ones produced = i-j
     }
     return res;
 }  

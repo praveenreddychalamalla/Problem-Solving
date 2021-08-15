@@ -4,17 +4,15 @@
 */
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-ll int mod=1e9+7;
-
-ll int power(ll int a,ll int n){
-  if(n==0)return 1;
-  int temp=power(a,n/2);
-  if(n%2) return (((a*temp)%mod)*temp)%mod;
-  else return (temp*temp)%mod;
+int mod=1e9+7;
+long long power(long long a,long long n){
+    if(n==0)return 1;
+    long long x=power(a,n/2);
+    if(n%2)return (((x*x)%mod)*(a%mod))%mod;
+    else return (x*x)%mod;
 }
 void solve(){
-   ll int n,m,p;
+   long long  n,m,p;
    cin>>n>>m;
    cout<<power(n,m)<<endl;
 }
