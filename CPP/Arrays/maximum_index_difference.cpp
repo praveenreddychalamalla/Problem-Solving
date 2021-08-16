@@ -14,7 +14,7 @@ using namespace std;
  * 
  * For an element a[i], you don't have to consider a[i] for left index if there is an element smaller than a[i] on left side of it. 
  * Similarly, if there is a greater element on right side of it, You don't have to consider this j for right index. 
- * Pre compute the things
+ * Pre compute the things.
  * */
 
 int maxIndexDiff(int a[], int n){ 
