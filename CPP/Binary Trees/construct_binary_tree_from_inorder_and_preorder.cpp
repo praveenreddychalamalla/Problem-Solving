@@ -21,9 +21,7 @@ struct Node
 	}
 };
 
-/**
- * Pick element 
-*/
+
 Node* constructTree(int in[],int pre[],int& k,int start,int end){
     if(start>end)return NULL;
     Node* root=new Node(pre[k++]); //Pick element from preorder array and create a node. Increment the traversal pointer
