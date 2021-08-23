@@ -41,7 +41,7 @@ int computeMaxXor(TrieNode* root,int pre_xor){ //Any leaf node contains xor valu
         else if(curr->next[bit]!=NULL) // If there is no prefix with opposite bit, then look for same bit. 
             curr=curr->next[bit];
     }
-    return (curr->val)^x; //required subarray will be from the index where leaf value  obtained (pre_xor value computed before) to curr index
+    return (curr->val)^x; //required subarray will be from the index where leaf value  obtained (pre_xor value computed before i.e., xor value of some subarray) to curr index
 }
 int maxSubarrayXOR(int n, int a[]){    
     TrieNode *root=new TrieNode();
