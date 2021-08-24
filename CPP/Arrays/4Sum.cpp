@@ -18,14 +18,14 @@ vector<vector<int>> fourSum(vector<int>& a, int target) {
     int n=a.size();
     unordered_map<int,int>freq;
     for(auto x:a)freq[x]++;
-    unordered_map<long long, map<pair<int,int>,int>>m;
+    unordered_map<long long, map<pair<int,int>,int>>m; 
     vector<vector<int>>v;
     map<vector<int>,int>res;
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n;i++){ //Form O(n^2) unique pairs 
         for(int j=i+1;j<n;j++){
             int x=min(a[i],a[j]),y=max(a[i],a[j]);
             long long sum=(long long)a[i]+(long long)a[j];
-            m[sum][make_pair(x,y)]=1;
+            m[sum][make_pair(x,y)]=1; 
         }
     }
     for(int i=0;i<n;i++){

@@ -23,6 +23,10 @@ int maxIndexDiff(int a[], int n){
     right[n-1]=a[n-1];
     for(int i=1;i<n;i++)left[i]=min(left[i-1],a[i]);
     for(int i=n-2;i>=0;i--)right[i]=max(right[i+1],a[i]);
+/**
+ *As right[] array is a monotonically non Increasing sequence, for any element in a[] as we need an element just greater than or equal to it from this right[] array,
+ * perform binary search and get the index - But this approach goes to O(nlogn)
+ */ 
     int res=0,i=0,j=0;
     while(j<n && i<n){
         if(left[i]<=right[j]){
