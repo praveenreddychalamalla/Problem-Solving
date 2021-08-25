@@ -15,10 +15,10 @@ using namespace std;
  * 
  * Exceptions: 
  * If x < y then x^y > y^x might fail when x=0,1,2,3.
- * If x==0, there will be no y satisfying x^y > y^x (0<1)
- * If x==1, then, only possible y  satisfying x^y > y^x  is 0 
- * If x==2, then, x^y > y^x  fails for y=3,4
- * If x==3, then, y=2 satisfies x^y > y^x though x>y. Special case
+ * If x=0, there will be no y satisfying x^y > y^x (0<1)
+ * If x=1, then, only possible y  satisfying x^y > y^x  is 0 
+ * If x=2, then, x^y > y^x  fails for y=3,4
+ * If x=3, then, y=2 satisfies x^y > y^x though x>y. Special case
  * 
  * If x is other than 0 and 1, then y's less than x satisfying the eqution will be y=0,1
 */

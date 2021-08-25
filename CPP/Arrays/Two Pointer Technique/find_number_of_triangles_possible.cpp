@@ -18,7 +18,7 @@ int findNumberOfTriangles(int a[], int n)
         r=i-1;
         while(l<r){
             if(isTrianglePossible(a[l],a[r],a[i])){
-                cnt+=r-l; // As array is sorted, you can form triangles with a[k],a[r],a[i] for l<=k<r
+                cnt+=r-l; // As array is sorted, you can form triangles with a[k],a[r],a[i] for every l<=k<r
                 r--;
             }
             else l++;

@@ -6,7 +6,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 //Time Complexity - O(n).
-int longestPrefixSuffix(string s)
+int longestPrefixSuffix(string s) //LPS computation in KMP. Refer KMP Algorithm
 	{
 	    int len=0,i=1,n=s.size();
 	    int lps[n];
@@ -18,7 +18,7 @@ int longestPrefixSuffix(string s)
 	            i++;
 	        }
 	        else{
-	            if(len!=0)len=lps[len-1]; //Check this out
+	            if(len!=0)len=lps[len-1]; 
 	            else{
 	                lps[i]=0;
 	                i++;
