@@ -28,8 +28,8 @@ double MedianOfArrays(vector<int>& a, vector<int>& b){
         int r2=p2==n?INT_MAX:b[p2];
         
         if(l1<=r2 && l2<=r1){ //Desired Partition is found
-            if((m+n)%2)return min(r1,r2); //We require k+1 the element (Assuming 1 based positions). Hence pick the min from right side of partitions 
-            else return (max(l1,l2)+min(r1,r2))/2.0; //Pick 1 from left and one from right
+            if((m+n)%2)return min(r1,r2); //We require k+1 th element (Assuming 1 based positions). Hence pick the min from right side of partitions 
+            else return (max(l1,l2)+min(r1,r2))/2.0; //Pick 1 from left and 1 from right
         }
         else{
             if(l1>r2)high=p1-1;

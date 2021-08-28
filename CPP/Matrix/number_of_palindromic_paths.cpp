@@ -13,7 +13,7 @@
 using namespace std;
 
 int mod =1e9+7;
-//i & j points to front of path, x & j points to end of path.
+//i & j points to front of path, x & y points to end of path.
 int computePaths(vector<vector<char>>& a, int i,int j, int x, int y,vector<vector<vector<vector<int>>>>&dp){
     if(i>x||j>y||a[i][j]!=a[x][y])return 0; // Check upto halfway
     if(abs(i-x)+abs(j-y)<=1)return 1; // [i,j] and [x,y] points to same character in the path or adjacent characters in the path which implies palindrome is found

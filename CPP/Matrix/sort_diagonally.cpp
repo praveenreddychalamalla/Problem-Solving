@@ -2,8 +2,8 @@
  * @author Praveen Reddy Chalamalla
  * @create date 2021-07-07
  * @desc Given a NxM Matrix, sort the Diagonal elements in descending order in the upper triangular matrix, 
- * sort the Diagonal elements in ascending order in the lower triangular matrix,
- * keep the principal diagonal elements in tact.
+ * 		 sort the Diagonal elements in ascending order in the lower triangular matrix,
+ * 		 keep the principal diagonal elements in tact.
  * 
  */
 
@@ -13,14 +13,14 @@ using namespace std;
 
 void sortDiagonal(vector<vector<int>>& a, int row, int col,int n,int m, bool flag=false){ //For Each diagonal
     vector<int>v;
-    int i=row,j=col;
+    int i=row,j=col,k=0;
     if(!flag){
         while(i<n&& j<m){ //Traverse along the diagonal and push all the elements into vector
             v.push_back(a[i][j]);
             i++;
             j++;
         }
-        int k=0,i=row,j=col;
+        i=row,j=col;
         sort(v.begin(),v.end(),greater<int>()); //Sort in descending order
         while(i<n && j<m){
             a[i][j]=v[k++];
@@ -34,7 +34,7 @@ void sortDiagonal(vector<vector<int>>& a, int row, int col,int n,int m, bool fla
             i++;
             j++;
         }
-        int k=0,i=row,j=col;
+        i=row,j=col;
         sort(v.begin(),v.end()); //Sort in descending order
         while(i<n && j<m){
             a[i][j]=v[k++];
