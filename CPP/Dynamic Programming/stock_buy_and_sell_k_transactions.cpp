@@ -5,7 +5,7 @@
  *       Given the stock prices of N days in an array A[ ] and a positive integer K,
  *       find out the maximum profit a person can make in at-most K transactions. 
  *       A transaction is equivalent to (buying + selling) of a stock and 
- *      new transaction can start only when the previous transaction has been completed.
+ *       new transaction can start only when the previous transaction has been completed.
  */
 
 //Time Complexity - O(2*n*k), Space Complexity - O(2*n*k)
@@ -13,6 +13,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+ /**For transaction fee and infinite trasactions allowed variant, 2d dp table <dp[stock][curr]> would be sufficient.
+   * Just subtract transaction fee while selling the stock i.e., prices[curr]-fee
+   */
 vector<vector<vector<int>>>dp;
 
 //Stock = false indicate that you don't have stock in hand. stocl = true indicates you have stock in hand

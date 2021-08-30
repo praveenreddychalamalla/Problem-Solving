@@ -40,7 +40,9 @@ int maxProfit(int prices[],int n) {
         int maxVal=0;
 
         for(int i=curr+1;i<n;i++){ //Assume you bought stock on current day and try selling the current stock in coming days
+
             if(prices[curr]<prices[i]){ //You can sell stock on ith day
+            
                 maxVal=max(maxVal,prices[i]-prices[curr]+findMaximum(prices,i+2,n)); //If cool down is k days replace i+2 with i+k+1
             }
         }
