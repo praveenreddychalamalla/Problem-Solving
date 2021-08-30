@@ -9,8 +9,8 @@
 using namespace std;
 
 /**
- * Optimal way for every element you have to pick the first index from the end where 
- * the value of element is greater than or equal to current element. Similarly if you traverse from right look for first index from start.
+ * Optimal way - for every element you have to pick the first index from the end where 
+ * the value of element is greater than or equal to current element. Similarly if you traverse from right, look for first index from start.
  * 
  * For an element a[i], you don't have to consider a[i] for left index if there is an element smaller than a[i] on left side of it. 
  * Similarly, if there is a greater element on right side of it, You don't have to consider this j for right index. 

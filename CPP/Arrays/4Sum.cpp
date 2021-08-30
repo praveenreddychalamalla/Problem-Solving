@@ -38,7 +38,7 @@ vector<vector<int>> fourSum(vector<int>& a, int target) {
                     map<int,int>temp;
                     int x3=e.first.first,x4=e.first.second;
                     temp[x1]++;temp[x2]++;temp[x3]++;temp[x4]++;
-                    for(auto e1:temp){
+                    for(auto e1:temp){ //Check if there are sufficient number of elements to form quadraplet
                         if(e1.second>freq[e1.first]){
                             flag=false;
                         }
