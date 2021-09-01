@@ -14,7 +14,7 @@ int numberOfSubArraysWithSumK(int a[], int n, int k){
     for(int i=0;i<n;i++){
         sum+=a[i];
         if(sum==k)cnt++;
-        if(m[sum-k]){ //There will be a sub array whose sum is k from the index where sum-k is obtained to curr index
+        if(m[sum-k]){ //There will be a sub array, whose sum is k, from the index where sum-k is obtained to curr index
             cnt+=m[sum-k];
         }
         m[sum]+=1;
