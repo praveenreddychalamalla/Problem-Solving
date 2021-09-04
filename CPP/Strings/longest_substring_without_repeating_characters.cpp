@@ -9,7 +9,7 @@ using namespace std;
 int longestUniqueSubsttr(string s){
     vector<int>v(26,-1);
     int res=0,l=0;
-    for(int i=0;i<s.length();i++){ //Window - [l,i]
+    for(int i=0;i<s.length();i++){ //Window - [l,i] : l points to left boundary , i points to right boundary
         if(v[s[i]-'a']>=l){ //If the current character's another presence is within the window, shift the right boundary next to it.
             l=v[s[i]-'a']+1;
         }

@@ -18,33 +18,26 @@ struct Node {
         next = NULL;
     }
 };
-Node* mergeTwoLists(Node* l1, Node* l2) {
-        
-    if(!l1) return l2;
-    if(!l2)return l1;
-    
-    Node *head=NULL,*trav1=l1,*trav2=l2,*curr; //Curr points to end node of merged list so far
-    
-    head=l1->data<=l2->data?l1:l2;
-    curr=head;
+Node* mergeTwoLists(Node* head1, Node* head2) {
+   if(!head1)return head2;
+   if(!head2)return head1;
+   
+   Node *head = new Node(-1), *tail=head; //Dummy Node
 
-    if(curr==l1)trav1=trav1->next;
-    else trav2=trav2->next;
-
-    while(trav1&&trav2){
-        if(trav1->data<=trav2->data){
-            curr->next=trav1;
-            trav1=trav1->next;
-        }
-        else{
-            curr->next=trav2;
-            trav2=trav2->next;
-        }
-        curr=curr->next;
-    }
-    if(trav1)curr->next=trav1;
-    if(trav2)curr->next=trav2;
-    return head;
+   while(head1 && head2){
+       if(head1->data<head2->data){
+           tail->next=head1;
+           head1=head1->next;
+       }
+       else {
+           tail->next=head2;
+           head2=head2->next;
+       }
+       tail=tail->next;
+   }
+   if(head1)tail->next=head1;
+   if(head2)tail->next=head2;
+   return head->next;
 }
 
 void printList(struct Node *head){

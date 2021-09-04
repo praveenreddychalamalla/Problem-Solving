@@ -5,6 +5,8 @@
  */
 
 /**
+ * Source - Stack Overflow
+ *
  * Even Number of digits:
  * 
  * How many palindromes are there between 1 and 12345678?
