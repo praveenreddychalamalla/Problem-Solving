@@ -26,7 +26,7 @@ long long getMaxArea(long long a[], int n)
           st.push(i);
       }
       else{
-          while(!st.empty() and a[i]<=a[st.top()] )  // Pop until stack is empty or you get an index of bar whose height is less than curr_bar
+          while(!st.empty() && a[i]<=a[st.top()] )  // Pop until stack is empty or you get an index of bar whose height is less than curr_bar
             st.pop();
           left[i]=st.empty()? 0: st.top()+1;
           st.push(i);
@@ -40,7 +40,7 @@ long long getMaxArea(long long a[], int n)
           st.push(i);
       }
       else{
-          while(!st.empty() and a[i]<=a[st.top()])st.pop(); // Pop until stack is empty or you get an index of bar whose height is less than curr_bar
+          while(!st.empty() && a[i]<=a[st.top()])st.pop(); // Pop until stack is empty or you get an index of bar whose height is less than curr_bar
           right[i]=st.empty()? n-1: st.top()-1;
           st.push(i);
       }
@@ -52,6 +52,40 @@ long long getMaxArea(long long a[], int n)
   return area_max;
   
 }
+/*	Finding index of smaller element to the left and right of current element . And compute areas accordingly
+
+	long long getMaxArea(long long a[], int n){
+        vector<int>left(n,0),right(n,0);
+        stack<int>st;
+        for(int i=0;i<n;i++){
+            while(!st.empty()&& a[i]<=a[st.top()])st.pop();
+            if(st.empty()){
+                left[i]=-1;
+                st.push(i);
+            }
+            else{
+                left[i]=st.top();
+                st.push(i);
+            }
+        }
+        while(!st.empty())st.pop();
+        for(int i=n-1;i>=0;i--){
+            while(!st.empty()&& a[i]<=a[st.top()])st.pop();
+            if(st.empty()){
+                right[i]=n-1;
+                st.push(i);
+            }
+            else{
+                right[i]=st.top()-1;
+                st.push(i);
+            }
+        }
+        long long res=0;
+        for(int i=0;i<n;i++){
+            res=max(res,a[i]*(right[i]-left[i]));
+        }
+        return res;
+*/
 void solve(){
    int n;
    cin>>n;

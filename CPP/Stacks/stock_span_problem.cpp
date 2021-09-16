@@ -34,7 +34,25 @@ vector <int> calculateSpan(int price[], int n)
     }
     return v;
 }
+/* The problem boils down to finding the closest greater element's index to the left. Similar to finding next greater element problem
 
+	vector <int> calculateSpan(int a[], int n){
+	   vector<int>span(n);
+	   stack<int>st;
+	   for(int i=0;i<n;i++){
+		   while(!st.empty()&& a[i]>=a[st.top()])st.pop();
+		   if(st.empty()){
+			   st.push(i);
+			   span[i]=i+1; //No index as such, hence span is i+1
+		   }
+		   else{
+			   span[i]=i-st.top();
+			   st.push(i);
+		   }
+	   }
+	   return span;
+}
+*/
 int main()
 {
 	int t;
