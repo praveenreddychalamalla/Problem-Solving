@@ -39,7 +39,7 @@ vector <int> maxOfMin(int a[], int n){
     vector<int>res(n,0);
     for(int i=0;i<n;i++){
         int j=right[i]-left[i]-1; //length of window in which a[i] is minimum 
-        res[j-1]=max(res[j-1],a[i]);
+        res[j-1]=max(res[j-1],a[i]); //res[i] will contain the max of of all minimums of windows with size i+1
     }
     for(int i=n-2;i>=0;i--){
         res[i]=max(res[i],res[i+1]); //Fill remaining positions

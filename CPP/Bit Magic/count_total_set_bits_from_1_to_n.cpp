@@ -24,7 +24,16 @@ int countSetBits(int n)
         }
     }
     return cnt;
-    
+    /* 	
+		int cnt=0;
+        int x=log2(n);
+        while(x>=0){
+            cnt+=(1<<(x-1))*x+n-(1<<x)+1;
+            n&=~(1<<x);
+            while(x>=0 &&!(n&(1<<x))) x--;
+        }
+        return cnt;
+	*/
 }
 
 int main()
