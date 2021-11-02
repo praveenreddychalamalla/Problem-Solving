@@ -25,7 +25,8 @@ struct Node
     if(leftLCA&&rightLCA)return root; //One key is in LST and one key is RST ==> Current node is LCA
     return leftLCA?leftLCA:rightLCA; 
 }
-/*  If the tree is BST
+/*  If the tree is BST : TC = O(Height of tree)
+
     Node* LCA(Node *root, int n1, int n2){
     if(!root)return NULL;
     if(root->data==n1||root->data==n2)return root;
@@ -36,6 +37,7 @@ struct Node
     return root;
 }
 */
+
 /*  Time Complexity - O(n) 2 Traversals, Space Complexity - O(Height of tree) (But extra space for arrays and map used)
 
     bool flag;
