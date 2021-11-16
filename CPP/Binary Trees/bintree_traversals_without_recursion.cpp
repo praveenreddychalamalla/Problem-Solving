@@ -12,7 +12,7 @@ struct Node {
     Node* right;
 };
 
-vector<int> inOrder(Node* root){ //Altering the statements in the if block feteches you postOrder
+vector<int> inOrder(Node* root){ //Altering the statements in the if block fetches you postOrder
    vector<int>v;
    stack<pair<Node*,bool>>s;
    s.push({root,1});
