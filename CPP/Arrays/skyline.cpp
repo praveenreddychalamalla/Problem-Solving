@@ -43,7 +43,7 @@ public:
                 m[e.y]++;
             }
             auto h=m.rbegin()->first;
-            if(h!=max_h){ //New Buling height overshadows/ taller building passed its end
+            if(h!=max_h){ //New Buling height overshadows or taller building passed its end
                 max_h=h;
                 int n=res.size();
                 if(n>0 && res[n-1][0]==e.x){ //Check if prev interval is at same x coordinate

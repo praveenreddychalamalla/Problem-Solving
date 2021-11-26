@@ -31,7 +31,7 @@ class Solution {
             auto l=burnTree(root->left,target);
             auto r=burnTree(root->right,target);
             if(root->data==target){
-                res=max(res,max(l.second,r.second));
+                res=max(res,max(l.second,r.second)); //Check and update if farthest node lies in LST/RST of target node
                 return {1,1}; //Inform the presence of target to the caller (parent node) and initialize the distance from it
             }
             if(l.first==1){ //Target is in LST
