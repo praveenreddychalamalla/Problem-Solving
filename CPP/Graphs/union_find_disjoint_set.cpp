@@ -16,7 +16,7 @@ int find(int a[],int X){
 void unionSet(int A[],int X,int Z){
     int x=find(A,X); //find the representative element of the set to which X belongs to
     int y=find(A,Z);  //find the representative element of the set to which Z belongs to
-    A[x]=A[y]; //Modily the representative element
+    A[x]=A[y]; //Modify the representative element
 }
 int main(){
 	int t;
