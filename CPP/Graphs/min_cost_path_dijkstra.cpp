@@ -8,7 +8,7 @@
  *       Note: It is assumed that negative cost cycles do not exist in the input matrix.
  */
 
-//Time Complexity - O(n^2 log n), Space Complexity - O(n^2). Keeping track of recursion stack
+//Time Complexity - O(n^2 log n), Space Complexity - O(n^2).
 #include<bits/stdc++.h>
 using namespace std;
 class Solution{
