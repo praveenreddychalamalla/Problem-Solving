@@ -1,23 +1,25 @@
  /**
  * @author Praveen Reddy Chalamalla
- * @create date 2021-06-22
- * @desc Given a Directed Graph with V vertices (Numbered from 0 to V-1) and E edges, check whether it contains any cycle or not.
+ * @create date 2021-12-26
+ * @desc Given a UnDirected Graph with V vertices (Numbered from 0 to V-1) and E edges, check whether it contains any cycle or not.
  */
 
 //Time Complexity - O(V+E), Space Complexity - O(V). Keeping track of recursion stack
 #include<bits/stdc++.h>
 using namespace std;
 
-bool checkCycle(vector<int>& recStack,vector<int>& visited, vector<int> adj[],int x){
+vector<bool>visited;
+vector<bool>recStack;
+bool checkCycle(int x, int p, vector<int> adj[]){
     if(!visited[x]){
 
         visited[x]=1; //Mark current vertex as visited.
         recStack[x]=1; //Insert current node into recursion stack
 
         for(auto i: adj[x]){ //Recurr for all the adjacent vertices of x
-
+            if(i==p)continue;
             if(!visited[i]){ //If a vertex is not visited, then no way it could be present in recursion stack, hence call check cycle on this vertex
-                if(checkCycle(recStack,visited,adj,i)) return true;
+                if(checkCycle(i,x,adj)) return true;
             }
             else if(recStack[i]) return true; //If you hit a vertex which is already in recursion stack, it means that you are in same DFS (Un-backtracked) and hence in loop. 
         }
@@ -27,12 +29,15 @@ bool checkCycle(vector<int>& recStack,vector<int>& visited, vector<int> adj[],in
     
 }
 
-bool isCyclic(int V, vector<int> adj[]) 
-{
-    vector<int>visited(V,0),recStack(V,0); // recStack helps to know whether a vertex is in the current recursion stack or not
+bool isCyclic(int V, vector<int> adj[]) {
+    visited.resize(V,0);
+    recStack.resize(V,0);
     for(int i=0;i<V;i++){
-        if(checkCycle(recStack,visited,adj,i)) return true; //Modified DFS
+        if(!visited[i]){
+            if(checkCycle(i,-1,adj))return true;
+        }
     }
+        
     return false;
 }
 

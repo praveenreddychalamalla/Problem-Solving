@@ -7,10 +7,12 @@
 using namespace std;
 vector<int>parent;
 vector<int>findRank;
+
 int find(int x){
     if(parent[x]==x)return x;
     else return parent[x]=find(parent[x]);
 }
+
 void unionFind(int x,int y){
     int _x=find(x);
     int _y=find(y);
