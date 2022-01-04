@@ -19,7 +19,7 @@ class Solution
 	        while(!visited[j]){
 	            visited[j]=true;
 	            j=a[j].second;
-	            cycle_length;
+	            cycle_length++;
 	        }
 	        if(cycle_length)swaps+=cycle_length-1;
 	    }
