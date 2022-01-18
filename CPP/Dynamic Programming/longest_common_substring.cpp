@@ -27,11 +27,13 @@ int longestCommonSubString (string s1, string s2, int n, int m){
 
 /**
  * Recursive Approach 1 - Time Complexity : 2^(m+n)
+ *
  * class Solution {
     public:
         int lcs(string& x, string& y, int m, int n, int cnt){ 
             if(m==0||n==0)return cnt;
 
+            int l=cnt;
             if(x[m-1]==y[n-1]) {
                 cnt= lcs(x,y,m-1,n-1,l+1);
             }
@@ -84,6 +86,7 @@ int longestCommonSubString (string s1, string s2, int n, int m){
  * 
  * 
  * Recursive Approach 2 - Time Complexity: 2^(m+n)
+ *
     int cur=0,res=0;
     void lcs(string s1,string s2, int i,int j,int n,int m,bool flag){
         if(i<n&&j<m){
