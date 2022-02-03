@@ -39,6 +39,35 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
     for(auto e:res)a.push_back(e.second);
     return a;
 }
+//Below approach seems to be O(n^2), but in worst case the key may contain O(n^2) indices. Turns out to be O(n^4) - TLE
+/*vector<vector<int>> fourSum(vector<int>& nums, int target) {
+    unordered_map<string,vector<int>>res;
+    unordered_map<int,vector<pair<int,int>>>m;
+    int n=nums.size();
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            m[nums[i]+nums[j]].push_back({i,j});
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            long long x=(long long)target-(nums[i]+nums[j]);
+            for(auto e:m[x]){
+                int k=e.first,l=e.second;
+                if(j<k){
+                    vector<int>v{nums[i],nums[j],nums[k],nums[l]};
+                    sort(v.begin(),v.end());
+                    string s=to_string(v[0])+to_string(v[1])+to_string(v[2])+to_string(v[3]);
+                    if(res.find(s)==res.end())res[s]=v;
+                }
+            }
+        }
+    }
+    vector<vector<int>>a;
+    for(auto e:res)a.push_back(e.second);
+    return a;
+    
+}*/
 
 int main(){
     int t;
