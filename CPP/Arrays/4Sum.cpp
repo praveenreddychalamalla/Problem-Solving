@@ -10,53 +10,36 @@
     You may return the answer in any order.
  */
 
-//Time Complexity - O(n^2), Space Complexity - O(n^2)
+//Time Complexity - O(n^3), Space Complexity - O(n) (Worst case sums range -[4,4*n])
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> fourSum(vector<int>& a, int target) {
-    int n=a.size();
-    unordered_map<int,int>freq;
-    for(auto x:a)freq[x]++;
-    unordered_map<long long, map<pair<int,int>,int>>m; 
-    vector<vector<int>>v;
-    map<vector<int>,int>res;
-    for(int i=0;i<n;i++){ //Form O(n^2) unique pairs 
-        for(int j=i+1;j<n;j++){
-            int x=min(a[i],a[j]),y=max(a[i],a[j]);
-            long long sum=(long long)a[i]+(long long)a[j];
-            m[sum][make_pair(x,y)]=1; 
-        }
-    }
+vector<vector<int>> fourSum(vector<int>& nums, int target) {
+    sort(nums.begin(),nums.end());
+    unordered_map<string,vector<int>>res; //set also can be used
+    int n=nums.size();
     for(int i=0;i<n;i++){
         for(int j=i+1;j<n;j++){
-            int x1=a[i],x2=a[j];
-            long long x=target-((long long)a[i]+(long long)a[j]);
-            if(m.find(x)!=m.end()){
-                for(auto e:m[x]){
-                    bool flag=true;
-                    map<int,int>temp;
-                    int x3=e.first.first,x4=e.first.second;
-                    temp[x1]++;temp[x2]++;temp[x3]++;temp[x4]++;
-                    for(auto e1:temp){ //Check if there are sufficient number of elements to form quadraplet
-                        if(e1.second>freq[e1.first]){
-                            flag=false;
-                        }
-                    }
-                    if(flag){
-                        vector<int>sol={x1,x2,x3,x4};
-                        sort(sol.begin(),sol.end());
-                        res[sol]=1;
-                    }
+            int l=j+1,r=n-1;
+            while(l<r){
+                long long x=((long long)nums[i]+nums[j])+((long long)nums[l]+nums[r]);
+                if(x==target){
+                    vector<int>v{nums[i],nums[j],nums[l],nums[r]};
+                    sort(v.begin(),v.end());
+                    string s=to_string(v[0])+to_string(v[1])+to_string(v[2])+to_string(v[3]);
+                    if(res.find(s)==res.end())res[s]=v;
+                    l++;
                 }
+                else if(x<target)l++;
+                else r--;
             }
         }
     }
-    for(auto e:res){
-        v.push_back(e.first);
-    }
-    return v;
+    vector<vector<int>>a;
+    for(auto e:res)a.push_back(e.second);
+    return a;
 }
+
 int main(){
     int t;
     cin>>t;
