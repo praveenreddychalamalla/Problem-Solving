@@ -1,10 +1,10 @@
 /**
  * @author Praveen Reddy Chalamalla
  * @create date 2021-09-09
- * @desc Given a linked list consisting of L nodes and given a number N. The task is to find the Nth node from the end of the linked list.
+ * @desc Sort the linked list in ascending order
  */
 
-//Time Complexity - O(n * log n), Space Complexity - O(1)
+//Time Complexity - O(n * log n), Space Complexity - O(n)
 
 
 #include <bits/stdc++.h>
