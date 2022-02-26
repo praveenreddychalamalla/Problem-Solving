@@ -40,7 +40,7 @@ int computeMaxPathSum(Node* root){
         res=max(res,ls+rs+root->data); //Update res, if maximum path sum flowing through curr node is large enough
         return max(ls,rs)+root->data; //Propogate the maximum path sum that can be achieved using curr node to the ancestor
     }
-    return root->left? root->data+ls:root->data+rs;  //If node has only one child , maximum path sum cannot flow through this node(curr node being root). Hence Propogate the maximum path sum that can be achieved using curr node to the ancestor
+    else return root->left? root->data+ls:root->data+rs;  //If node has only one child , maximum path sum cannot flow through this node(curr node being root). Hence Propogate the maximum path sum that can be achieved using curr node to the ancestor
 }
 int maxPathSum(Node* root){ 
     res=INT_MIN;

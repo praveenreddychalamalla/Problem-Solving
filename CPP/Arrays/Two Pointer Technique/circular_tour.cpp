@@ -1,50 +1,34 @@
 /**
  * @author Praveen Reddy Chalamalla
- * @create date 2021-06-16
+ * @create date 2022-01-22
  * @desc Find a starting point where the truck can start to get through the complete circle without exhausting its petrol in between.
- *       Assume for 1 litre petrol, the truck can go 1 unit of distance. 
- *       petrolPump.petrol = amount of petrol that petrol pump has.
- *       petrolPump.distance = Distance from that petrol pump to the next petrol pump.
  */
 #include<bits/stdc++.h>
 using namespace std;
 
-struct petrolPump
-{
-    int petrol;
-    int distance;
-};
 
-
-int tour(petrolPump p[],int n) //Given an array of petrolPumps
-{
-    int start=0,end=1;
-    int fuel =p[start].petrol-p[start].distance;
-
-    while(end!=start || fuel<0){ //end==start indicates that tour is finished
-       
-        while(fuel<0 && start!=end){
-            fuel-=p[start].petrol-p[start].distance; //Remove the weight of starting petrol pump
-            start=(start+1)%n; //Increment starting point
-            if(start==0)return -1; //Again, if we hit 0 as start, then there is no such tour possible
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int n=gas.size();
+        int i=0,j=0,fuel=0;//start from station 0 and empty tank. j=start station, i=curr station
+        while(j<n){
+            fuel+=gas[i]-cost[i]; //If fuel<0, you cannot reach next station
+			
+			 /*If fuel is not sufficient to reach next station, You cannot start from any index between start station(j) and current station (i) i.e., [j+1,i]
+			  *Because, again you will end up failing to cross the current station. Hence start from station next to the current station i.e, i+1.
+			  */
+            if(fuel<0){ // You cannot start from [j+1.....i]
+                if(i<j)break; //i+1 <= j. You cannot start from any index before j, you already bypassed all those. You cannot even choose any index from [j+1...n-1,0...i] hence not possible to complete tour
+                fuel=0;
+                j=i+1;
+                i=(i+1)%n;  
+            }
+            else{
+                i=(i+1)%n;
+                if(i==j)return j;
+            }
         }
-        fuel+=p[end].petrol-p[end].distance; 
-        end=(end+1)%n;
+        return -1;
     }
-    return start;
-}
-
-int main()
-{
-    int t;
-    cin>>t;
-    while(t--)
-    {
-        int n;
-        cin>>n;
-        petrolPump p[n];
-        for(int i=0;i<n;i++)
-            cin>>p[i].petrol>>p[i].distance;
-        cout<<tour(p,n)<<endl;
-    }
-}
+};
