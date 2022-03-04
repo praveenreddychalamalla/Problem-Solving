@@ -1,7 +1,7 @@
 /**
  * @author Praveen Reddy Chalamalla
  * @create date 2021-11-08
- * @desc Find nth catalan number (n<=19)
+ * @desc Find nth catalan number (n<=19). catalan(n)=(2nCn)/(n+1)
  */
 //Time Complexity - O(n^2), space Complexity - O(n)
 
