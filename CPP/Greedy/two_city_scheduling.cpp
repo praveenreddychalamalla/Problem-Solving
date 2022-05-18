@@ -15,7 +15,7 @@ public:
         //Sort by savings. How much would you save by sending a person to City A in contrast to sending the same person to City B
         sort(a.begin(),a.end(),[&](vector<int>v1,vector<int>v2){ return v1[1]-v1[0]>v2[1]-v2[0];});
         for(int i=0;i<n/2;i++){
-            cost+=a[i][0]+a[n-i-1][1];
+            cost+=a[i][0]+a[n-i-1][1]; //Send left person to city A (You can save more by sending him to city A), right person to city B
         }
         return cost;
     }
