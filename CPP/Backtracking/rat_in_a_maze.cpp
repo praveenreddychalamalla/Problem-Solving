@@ -7,7 +7,7 @@
  *       Note: In a path, no cell can be visited more than one time.
  */
 
-//Time Complexity - O((n^2)^4), Space Complexity - O(L*X) i.e., Length of path X no.of paths
+//Time Complexity - O((n^2)^3), Space Complexity - O(L*X) i.e., Length of path X no.of paths
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -46,6 +46,37 @@ vector<string> findPath(vector<vector<int>> &v, int n) {
     return res;
 }
 
+/**
+ * class Solution{
+    public:
+    vector<char>move={'U','R','D','L'};
+    vector<vector<int>>dir={{-1,0},{0,1},{1,0},{0,-1}};
+    bool visited[5][5];
+    vector<string>paths;
+    
+    void dfs(vector<vector<int>>&a, int i, int j, string path){
+        int m=a.size(),n=a[0].size();
+        if(i==m-1 && j==n-1){
+            if(a[i][j])paths.push_back(path);
+            return;
+        }
+        if(i<0||j<0||i==m||j==n||visited[i][j]||!a[i][j])return;
+        visited[i][j]=true;
+        for(int k=0;k<4;k++){
+            int x=i+dir[k][0],y=j+dir[k][1];
+            dfs(a,x,y,path+move[k]);
+        }
+        visited[i][j]=false;
+    }
+
+    vector<string> findPath(vector<vector<int>> &m, int n) {
+        paths.clear();
+        memset(visited,0,sizeof(visited));
+        dfs(m,0,0,"");
+        return paths;
+    }
+};
+ */
 int main() {
     int t;
     cin >> t;
