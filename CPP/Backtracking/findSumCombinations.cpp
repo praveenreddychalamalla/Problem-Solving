@@ -39,6 +39,42 @@ vector<vector<int> > combinationSum(vector<int> &a, int s) {
     findSumCombinations(a,s,res,v,0,n);
     return res;
 }
+/**
+ * 
+ * class Solution {
+  public:
+    set<vector<int>>res;
+    void solve(vector<int>&a, int i, int s, vector<int>& list){
+        if(s==0){
+            res.insert(list);
+            return;
+        }
+        if(i==a.size()) return;
+        if(a[i]<=s){
+            list.push_back(a[i]);
+            solve(a,i,s-a[i],list);
+            list.pop_back();
+        }
+        solve(a,i+1,s,list);
+    }
+    void removeDuplicatesAndSort(vector<int>&a){
+        set<int>s;
+        for(auto e:a)s.insert(e);
+        a.clear();
+        for(auto e:s)a.push_back(e);
+        return;
+    }
+    vector<vector<int> > combinationSum(vector<int> &a, int s) {
+        res.clear();
+        vector<int>list;
+        removeDuplicatesAndSort(a);
+        solve(a,0,s,list);
+        vector<vector<int>>ans;
+        for(auto e:res)ans.push_back(e);
+        return ans;
+    }
+};
+ */
 int main(){
     int t;
     cin>>t;

@@ -40,6 +40,39 @@ vector<vector<int>> solveNQueen(int n){
         nQueens(1,n);
     return v;
 }
+/**
+ * public:
+    vector<vector<int>>res;
+    void solve(int n,vector<int>rows){
+        if(n==0){
+            for(int i=0;i<rows.size();i++)rows[i]++; //columns are mentioned as 0 indexed. 
+            res.push_back(rows);
+            return;
+        }
+        for(int i=0;i<rows.size();i++){
+            if(isSafe(rows,n-1,i)){ //Check if a queen can be placed in row n-1 and col i
+                rows[n-1]=i;
+                solve(n-1,rows);
+                rows[n-1]=-1;
+            }
+        }
+    }
+    bool isSafe(vector<int>rows, int r, int c){
+        for(int i=r+1;i<rows.size();i++){
+            if((rows[i]==c)|| (abs(rows[i]-c)==abs(r-i)))return false;
+        }
+        return true;
+    }
+    vector<vector<int>> nQueen(int n){
+        res.clear();
+        vector<int>rows(n,-1);
+        solve(n,rows);
+        sort(res.begin(),res.end());
+        return res;
+    }
+};
+ * 
+ */
 int main(){
     int t;
     cin>>t;
