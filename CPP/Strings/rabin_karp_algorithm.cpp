@@ -31,7 +31,7 @@ using namespace std;
     while(i<n){
         if(win_hash==pat_hash && txt.substr(i-m,m)==pat)res.push_back(i-m+1); //If hash values of current window and hash values of patter are equal, check whether string in current window ==pattern
         win_hash=(win_hash*26+(txt[i]-'a')-(txt[i-m]-'a')*q)%p; //For base 10 : 12345 - Number, 3 length window=123 ==> 123*10+4-1^(1000)=234 , window shifted
-        if(win_hash<0)win_hash+=p; //If win_hash<0 indicates overflow, hence add p
+        if(win_hash<0)win_hash+=p; //adjust the win_hash between 0 and p-1
         i++;
     }
     if(win_hash==pat_hash && txt.substr(i-m,m)==pat)res.push_back(i-m+1);
