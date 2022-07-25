@@ -17,6 +17,7 @@ void multiply(vector<int>&res, int n){
         carry=prod/10;
         i++;
     }
+    /**Redundant - Wont execute : i<l1 ==> carry becomes 0**/
     while(carry){
         res[i++]=carry%10;
         carry/=10;
@@ -26,13 +27,20 @@ vector<int> factorial(int n){
     double d=0;
     for(int i=1;i<=n;i++) d+=log10(i);
     int l=d+1;
-    vector<int>res(l,0);
+    vector<int>res(l,0),temp;
     res[0]=1;
     for(int i=2;i<=n;i++){
         multiply(res,i);
-    }
+    } 
+    //Extract number from res which is in different representation 
     reverse(res.begin(),res.end());
-    return res;
+    int i=0;
+    while(i<l){
+        if(res[i]>0)break;
+        i++;
+    }
+    while(i<l)temp.push_back(res[i++]);
+    return temp;
 }
 int main() {
     int t;
